@@ -15,18 +15,22 @@ import SectionJobsAds from "@/components/organisms/SectionJobsAds";
 
 import { FaPlus } from "react-icons/fa6";
 import SectionImpressions from "@/components/organisms/SectionImpressions";
+import SectionTargets from "@/components/organisms/SectionTargets";
 
 const inter = Inter({ subsets: ["latin"] });
 
 const HeadingButtons = () => {
   return (
     <Flex columnGap={5}>
-      <Button
-        text="See Recent Jobs Ads"
-        bgColor="bg-bggray"
-        textColor="text-secondarygray"
-      />
-      <Button text="Add New Ad Jobs" bgColor="bg-primary" icon={<FaPlus />} />
+      <Button bgColor="bg-bggray" textColor="text-secondarygray">
+        See Recent Jobs Ads
+      </Button>
+      <Button bgColor="bg-primary">
+        <Flex alignItems={"center"} columnGap={2}>
+          <FaPlus />
+          Add New Ad Jobs
+        </Flex>
+      </Button>
     </Flex>
   );
 };
@@ -78,6 +82,7 @@ export default function Home() {
         </GridItem>
         <GridItem colSpan={1}>
           <VStack spacing={5}>
+            <SectionTargets />
             <SectionStatistics />
             <SectionJobsAds />
           </VStack>
