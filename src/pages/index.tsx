@@ -1,12 +1,13 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import Heading from "@/components/molecules/Heading";
-import { Box, Flex, VStack } from "@chakra-ui/react";
+import { Box, Flex, Grid, GridItem, VStack } from "@chakra-ui/react";
 import Button from "@/components/atoms/Button";
 import { useState } from "react";
 import SectionOverview from "@/organisms/SectionOverview";
 import SectionViews from "@/organisms/SectionViews";
 import SectionGoals from "@/organisms/SectionGoals";
+import SectionStatistics from "@/organisms/SectionStatistics";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -48,17 +49,26 @@ export default function Home() {
   return (
     <main className={` min-h-screen   ${inter.className}`}>
       <Heading buttonSection={HeadingButtons} />
-      <VStack
+      <Grid
+        templateColumns={"repeat(3, 1fr)"}
+        columnGap={5}
         backgroundColor={"lightgray"}
-        width={"100%"}
         paddingX={10}
         paddingY={10}
-        spacing={5}
       >
-        <SectionOverview />
-        <SectionViews />
-        <SectionGoals />
-      </VStack>
+        <GridItem colSpan={2}>
+          <VStack width={"100%"} spacing={5}>
+            <SectionOverview />
+            <SectionViews />
+            <SectionGoals />
+          </VStack>
+        </GridItem>
+        <GridItem colSpan={1}>
+          <VStack spacing={5}>
+            <SectionStatistics />
+          </VStack>
+        </GridItem>
+      </Grid>
     </main>
   );
 }
