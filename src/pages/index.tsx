@@ -6,6 +6,7 @@ import Button from "@/components/atoms/Button";
 import { useState } from "react";
 import SectionOverview from "@/organisms/SectionOverview";
 import SectionViews from "@/organisms/SectionViews";
+import SectionGoals from "@/organisms/SectionGoals";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -55,6 +56,7 @@ export default function Home() {
       >
         <SectionOverview />
         <SectionViews />
+        <SectionGoals />
       </Box>
     </main>
   );
