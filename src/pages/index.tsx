@@ -1,20 +1,11 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import Heading from "@/components/molecules/Heading";
-import {
-  Box,
-  Flex,
-  Tab,
-  TabList,
-  TabPanel,
-  TabPanels,
-  Tabs,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 import Button from "@/components/atoms/Button";
-import Card from "@/organisms/Card";
 import { useState } from "react";
-import OverviewCard from "@/organisms/OverviewCard";
+import SectionOverview from "@/organisms/SectionOverview";
+import SectionViews from "@/organisms/SectionViews";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -62,33 +53,8 @@ export default function Home() {
         paddingX={10}
         paddingY={10}
       >
-        <Card>
-          <Flex
-            justifyContent={"space-between"}
-            borderBottom={"1px solid lightgray"}
-            padding={10}
-          >
-            <Text fontWeight={"bold"}>Overview</Text>
-            <Tabs>
-              <TabList>
-                <Tab>Week</Tab>
-                <Tab>Month</Tab>
-                <Tab>Year</Tab>
-              </TabList>
-            </Tabs>
-          </Flex>
-          <Flex padding={10} columnGap={10} flexWrap={"wrap"}>
-            {overviewData.length &&
-              overviewData.map((data) => (
-                <OverviewCard
-                  growth={data.growth}
-                  amount={data.amount}
-                  growthRate={data.growthRate}
-                  desc={data.desc}
-                />
-              ))}
-          </Flex>
-        </Card>
+        <SectionOverview />
+        <SectionViews />
       </Box>
     </main>
   );
