@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import Heading from "@/components/molecules/Heading";
-import { Box, Flex } from "@chakra-ui/react";
+import { Box, Flex, VStack } from "@chakra-ui/react";
 import Button from "@/components/atoms/Button";
 import { useState } from "react";
 import SectionOverview from "@/organisms/SectionOverview";
@@ -48,16 +48,17 @@ export default function Home() {
   return (
     <main className={` min-h-screen   ${inter.className}`}>
       <Heading buttonSection={HeadingButtons} />
-      <Box
+      <VStack
         backgroundColor={"lightgray"}
         width={"100%"}
         paddingX={10}
         paddingY={10}
+        spacing={5}
       >
         <SectionOverview />
         <SectionViews />
         <SectionGoals />
-      </Box>
+      </VStack>
     </main>
   );
 }
