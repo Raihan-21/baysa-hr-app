@@ -13,7 +13,7 @@ const Heading = ({ buttonSection }: { buttonSection?: JSX.Element }) => {
         <Text fontWeight={"bold"} fontSize={"x-large"}>
           Welcome, Artem
         </Text>
-        <Text fontSize={"small"} color={"lightgray"}>
+        <Text fontSize={"small"} color={"thirdgray"}>
           Monday, 05 April 2021
         </Text>
       </Box>

@@ -17,10 +17,10 @@ const JobAd = ({ data }: { data: JobType }) => {
         <Text fontWeight={"bold"} fontSize={"large"} color={"secondarygray"}>
           {data.position}
         </Text>
-        <Flex color={"lightgray"} columnGap={1}>
+        <Flex color={"thirdgray"} columnGap={1}>
           <Text>{data.company}</Text>•<Text>{data.location}</Text>
         </Flex>
-        <Text color={"lightgray"}>{data.expiredDay} left</Text>
+        <Text color={"thirdgray"}>{data.expiredDay} left</Text>
       </VStack>
     </Flex>
   );

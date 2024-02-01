@@ -52,16 +52,16 @@ const SectionJobsAds = () => {
         paddingY={5}
       >
         <Box>
-          <Text fontWeight={"bold"} color={"lightgray"} fontSize={"smaller"}>
+          <Text fontWeight={"bold"} color={"thirdgray"} fontSize={"smaller"}>
             RECENT JOB ADS
           </Text>
-          <Text fontWeight={"bold"} color={"lightgray"} fontSize={"large"}>
+          <Text fontWeight={"bold"} color={"thirdgray"} fontSize={"large"}>
             <span className="!text-secondarygray text-[24px]">16</span> / 24
           </Text>
         </Box>
         <Pills
           text="5 Jobs ads left"
-          textColor="lightgray"
+          textColor="thirdgray"
           bgColor="bggray"
           boldText
         />

@@ -23,6 +23,7 @@ ChartJS.register(
 );
 
 import Card from "@/components/organisms/Card";
+import Pills from "../molecules/Pills";
 
 const SectionStatistics = () => {
   const [chartData, setChartData] = useState({
@@ -39,12 +40,13 @@ const SectionStatistics = () => {
     <Card>
       <Flex
         justifyContent={"space-between"}
+        alignItems={"center"}
         borderBottom={"1px solid lightgray"}
         paddingX={7}
         paddingY={5}
       >
         <Text fontWeight={"bold"}>Statistics</Text>
-        <Text color={"secondaryGray"}>Total</Text>
+        <Pills text="Total" bgColor="bggray" textColor="thirdgray" boldText />
       </Flex>
       <Flex padding={10} columnGap={10} flexWrap={"wrap"}>
         <Doughnut data={chartData} options={{ cutout: 90 }} />

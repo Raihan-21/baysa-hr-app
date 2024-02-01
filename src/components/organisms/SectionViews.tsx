@@ -66,7 +66,7 @@ const SectionViews = () => {
         paddingY={5}
       >
         <Box>
-          <Text fontWeight={"bold"} color={"lightgray"} fontSize={"small"}>
+          <Text fontWeight={"bold"} color={"thirdgray"} fontSize={"small"}>
             VIEWS
           </Text>
           <Text

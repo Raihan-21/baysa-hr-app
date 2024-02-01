@@ -52,7 +52,7 @@ const SectionGoals = () => {
           <Text fontWeight={"bold"} fontSize={"large"} color={"secondarygray"}>
             Financial Goals
           </Text>
-          <Text fontSize={"small"} color={"lightgray"}>
+          <Text fontSize={"small"} color={"thirdgray"}>
             Set your financial goals
           </Text>
         </Box>
