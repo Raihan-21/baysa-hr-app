@@ -64,7 +64,11 @@ export default function Home() {
   ]);
   return (
     <main className={` min-h-screen   ${inter.className}`}>
-      <Heading buttonSection={<HeadingButtons />} />
+      <Heading
+        title="Welcome, Artem"
+        desc="Monday, 05 April 2021"
+        buttonSection={<HeadingButtons />}
+      />
       <Grid
         templateColumns={"repeat(3, 1fr)"}
         columnGap={5}

@@ -1,7 +1,15 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
 import React, { ReactElement, ReactNode } from "react";
 
-const Heading = ({ buttonSection }: { buttonSection?: JSX.Element }) => {
+const Heading = ({
+  title,
+  desc,
+  buttonSection,
+}: {
+  title: string;
+  desc: string;
+  buttonSection?: JSX.Element;
+}) => {
   return (
     <Flex
       justifyContent={"space-between"}
@@ -11,10 +19,10 @@ const Heading = ({ buttonSection }: { buttonSection?: JSX.Element }) => {
     >
       <Box>
         <Text fontWeight={"bold"} fontSize={"xx-large"}>
-          Welcome, Artem
+          {title}
         </Text>
         <Text fontSize={"small"} color={"thirdgray"}>
-          Monday, 05 April 2021
+          {desc}
         </Text>
       </Box>
       {buttonSection}
