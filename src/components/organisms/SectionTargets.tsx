@@ -56,6 +56,7 @@ const SectionTargets = () => {
           color={"thirdgray"}
           fontWeight={"bold"}
           marginTop={5}
+          marginBottom={7}
         >
           You definitely need to make an effort to reach your goal
         </Text>
