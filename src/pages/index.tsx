@@ -14,6 +14,7 @@ import SectionStatistics from "@/components/organisms/SectionStatistics";
 import SectionJobsAds from "@/components/organisms/SectionJobsAds";
 
 import { FaPlus } from "react-icons/fa6";
+import SectionImpressions from "@/components/organisms/SectionImpressions";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -69,6 +70,7 @@ export default function Home() {
       >
         <GridItem colSpan={2}>
           <VStack width={"100%"} spacing={5}>
+            <SectionImpressions />
             <SectionOverview />
             <SectionViews />
             <SectionGoals />
