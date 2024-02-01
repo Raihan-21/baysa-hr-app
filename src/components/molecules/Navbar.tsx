@@ -7,7 +7,11 @@ import { IoMdNotifications } from "react-icons/io";
 const Navbar = () => {
   return (
     <nav className="p-4">
-      <Flex columnGap={5} justifyContent={"space-between"}>
+      <Flex
+        columnGap={5}
+        justifyContent={"space-between"}
+        alignItems={"center"}
+      >
         <Box>Boxboard</Box>
         <Flex columnGap={20}>
           <Box>Overview</Box>
@@ -16,9 +20,9 @@ const Navbar = () => {
           <Box>History</Box>
           <Box>Events</Box>
         </Flex>
-        <Flex alignItems="center" columnGap={10}>
+        <Flex alignItems="center" columnGap={5}>
           <IoMdNotifications />
-          <Img src="/profile.jpg" width={20} height={20} borderRadius={"50%"} />
+          <Img src="/profile.jpg" width={10} height={10} borderRadius={"50%"} />
         </Flex>
       </Flex>
     </nav>

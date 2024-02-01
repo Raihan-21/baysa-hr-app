@@ -1,21 +1,31 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
-import Heading from "@/components/molecules/Heading";
+
 import { Box, Flex, Grid, GridItem, VStack } from "@chakra-ui/react";
-import Button from "@/components/atoms/Button";
+
 import { useState } from "react";
+
+import Heading from "@/components/molecules/Heading";
+import Button from "@/components/atoms/Button";
 import SectionOverview from "@/components/organisms/SectionOverview";
 import SectionViews from "@/components/organisms/SectionViews";
 import SectionGoals from "@/components/organisms/SectionGoals";
 import SectionStatistics from "@/components/organisms/SectionStatistics";
 import SectionJobsAds from "@/components/organisms/SectionJobsAds";
 
+import { FaPlus } from "react-icons/fa6";
+
 const inter = Inter({ subsets: ["latin"] });
 
 const HeadingButtons = () => {
   return (
-    <Flex>
-      <Button text="Add job" />
+    <Flex columnGap={5}>
+      <Button
+        text="See Recent Jobs Ads"
+        bgColor="bg-bggray"
+        textColor="text-secondarygray"
+      />
+      <Button text="Add New Ad Jobs" bgColor="bg-primary" icon={<FaPlus />} />
     </Flex>
   );
 };
@@ -49,7 +59,7 @@ export default function Home() {
   ]);
   return (
     <main className={` min-h-screen   ${inter.className}`}>
-      {/* <Heading buttonSection={HeadingButtons} /> */}
+      <Heading buttonSection={<HeadingButtons />} />
       <Grid
         templateColumns={"repeat(3, 1fr)"}
         columnGap={5}

@@ -26,6 +26,7 @@ const config: Config = {
         lightred: "#FFF6F4",
         secondarygray: "#4E5D78",
         thirdgray: "#BBC3CC",
+        bggray: "#F3F4F6",
       },
     },
   },

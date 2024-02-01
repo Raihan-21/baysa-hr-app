@@ -1,16 +1,21 @@
-import React from "react";
+import React, { ReactElement } from "react";
 
 const Button = ({
-  bgColor = "primary",
-  textColor = "primary",
+  bgColor = "bg-primary",
+  textColor = "text-white",
   text,
+  icon,
 }: {
   bgColor?: string;
   textColor?: string;
   text: string;
+  icon?: ReactElement;
 }) => {
   return (
-    <button className={`bg-${bgColor} text-${textColor} rounded-md`}>
+    <button
+      className={`${bgColor} ${textColor} rounded-[12px] py-3 px-4 flex items-center gap-x-2`}
+    >
+      {icon}
       {text}
     </button>
   );

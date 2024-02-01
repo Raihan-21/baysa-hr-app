@@ -3,12 +3,19 @@ import React, { ReactElement, ReactNode } from "react";
 
 const Heading = ({ buttonSection }: { buttonSection?: JSX.Element }) => {
   return (
-    <Flex justifyContent={"space-between"} alignItems={"center"}>
+    <Flex
+      justifyContent={"space-between"}
+      alignItems={"center"}
+      paddingX={10}
+      paddingY={5}
+    >
       <Box>
         <Text fontWeight={"bold"} fontSize={"x-large"}>
           Welcome, Artem
         </Text>
-        <Text fontSize={"small"}>Monday, 5 April 2021</Text>
+        <Text fontSize={"small"} color={"lightgray"}>
+          Monday, 05 April 2021
+        </Text>
       </Box>
       {buttonSection}
     </Flex>
