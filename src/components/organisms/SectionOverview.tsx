@@ -2,8 +2,8 @@ import React, { useState } from "react";
 
 import { Box, Flex, Tab, TabList, Tabs, Text } from "@chakra-ui/react";
 
-import Card from "@/organisms/Card";
-import OverviewCard from "@/organisms/OverviewCard";
+import Card from "@/components/organisms/Card";
+import OverviewCard from "@/components/organisms/OverviewCard";
 
 const SectionOverview = () => {
   const [overviewData, setOverviewData] = useState([

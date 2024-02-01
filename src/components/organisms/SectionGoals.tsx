@@ -4,56 +4,39 @@ import { Box, Flex, Select, Tab, TabList, Tabs, Text } from "@chakra-ui/react";
 
 import {
   Chart as ChartJS,
-  BarElement,
+  LineElement,
   ArcElement,
+  PointElement,
   Tooltip,
   Legend,
   CategoryScale,
   LinearScale,
 } from "chart.js";
-import { Bar } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 
 ChartJS.register(
   ArcElement,
-  BarElement,
+  LineElement,
+  PointElement,
   Tooltip,
   Legend,
   CategoryScale,
   LinearScale
 );
 
-import Card from "@/organisms/Card";
-import OverviewCard from "@/organisms/OverviewCard";
+import Card from "@/components/organisms/Card";
 
-const SectionViews = () => {
+const SectionGoals = () => {
   const [data, setData] = useState({
     total: 783482,
   });
   const [chartData, setChartData] = useState({
-    labels: [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ],
+    labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
     datasets: [
       {
-        label: "Social",
+        label: "",
         data: [200, 400, 600, 700, 500, 400, 600, 300, 400, 100, 200, 400],
         backgroundColor: ["#377DFF"],
-      },
-      {
-        label: "Direct",
-        data: [300, 500, 700, 800, 600, 500, 800, 400, 500, 300, 300, 500],
-        backgroundColor: "#FFAB00",
       },
     ],
   });
@@ -66,15 +49,11 @@ const SectionViews = () => {
         paddingY={5}
       >
         <Box>
-          <Text fontWeight={"bold"} color={"lightgray"} fontSize={"small"}>
-            VIEWS
+          <Text fontWeight={"bold"} fontSize={"large"} color={"secondarygray"}>
+            Financial Goals
           </Text>
-          <Text
-            fontSize={"x-large"}
-            fontWeight={"bold"}
-            color={"secondarygray"}
-          >
-            {new Intl.NumberFormat().format(data.total)}
+          <Text fontSize={"small"} color={"lightgray"}>
+            Set your financial goals
           </Text>
         </Box>
 
@@ -86,10 +65,10 @@ const SectionViews = () => {
         </Select>
       </Flex>
       <Box padding={10}>
-        <Bar data={chartData} />
+        <Line data={chartData} />
       </Box>
     </Card>
   );
 };
 
-export default SectionViews;
+export default SectionGoals;

@@ -22,7 +22,7 @@ ChartJS.register(
   LinearScale
 );
 
-import Card from "@/organisms/Card";
+import Card from "@/components/organisms/Card";
 
 const SectionStatistics = () => {
   const [chartData, setChartData] = useState({

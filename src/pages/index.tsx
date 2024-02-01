@@ -4,10 +4,11 @@ import Heading from "@/components/molecules/Heading";
 import { Box, Flex, Grid, GridItem, VStack } from "@chakra-ui/react";
 import Button from "@/components/atoms/Button";
 import { useState } from "react";
-import SectionOverview from "@/organisms/SectionOverview";
-import SectionViews from "@/organisms/SectionViews";
-import SectionGoals from "@/organisms/SectionGoals";
-import SectionStatistics from "@/organisms/SectionStatistics";
+import SectionOverview from "@/components/organisms/SectionOverview";
+import SectionViews from "@/components/organisms/SectionViews";
+import SectionGoals from "@/components/organisms/SectionGoals";
+import SectionStatistics from "@/components/organisms/SectionStatistics";
+import SectionJobsAds from "@/components/organisms/SectionJobsAds";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -48,11 +49,11 @@ export default function Home() {
   ]);
   return (
     <main className={` min-h-screen   ${inter.className}`}>
-      <Heading buttonSection={HeadingButtons} />
+      {/* <Heading buttonSection={HeadingButtons} /> */}
       <Grid
         templateColumns={"repeat(3, 1fr)"}
         columnGap={5}
-        backgroundColor={"lightgray"}
+        backgroundColor={"bggray"}
         paddingX={10}
         paddingY={10}
       >
@@ -66,6 +67,7 @@ export default function Home() {
         <GridItem colSpan={1}>
           <VStack spacing={5}>
             <SectionStatistics />
+            <SectionJobsAds />
           </VStack>
         </GridItem>
       </Grid>

@@ -5,7 +5,7 @@ const Card = ({ children }: { children: ReactElement[] }) => {
   return (
     <Box
       backgroundColor={"white"}
-      boxShadow={"0px 2px 10px 1px lightgray"}
+      boxShadow={"0px 5px 15px 1px lightgray"}
       borderRadius={15}
       width={"100%"}
     >
