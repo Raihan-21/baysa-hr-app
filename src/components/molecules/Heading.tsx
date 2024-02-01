@@ -10,7 +10,7 @@ const Heading = ({ buttonSection }: { buttonSection?: JSX.Element }) => {
       paddingY={5}
     >
       <Box>
-        <Text fontWeight={"bold"} fontSize={"x-large"}>
+        <Text fontWeight={"bold"} fontSize={"xx-large"}>
           Welcome, Artem
         </Text>
         <Text fontSize={"small"} color={"thirdgray"}>
