@@ -28,7 +28,7 @@ const Navbar = () => {
               <Text color="thirdgray">Overview</Text>
             </Flex>
           </Link>
-          <Link href={"/job"}>
+          <Link href={"/jobs"}>
             <Flex alignItems={"center"} columnGap={1}>
               <FiSearch color="#BBC3CC" />
               <Text color="thirdgray">Job Search</Text>
