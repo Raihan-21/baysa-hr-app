@@ -73,7 +73,7 @@ export default function Home() {
         templateColumns={"repeat(3, 1fr)"}
         columnGap={5}
         backgroundColor={"bggray"}
-        paddingX={10}
+        paddingX={20}
         paddingY={10}
       >
         <GridItem colSpan={2}>

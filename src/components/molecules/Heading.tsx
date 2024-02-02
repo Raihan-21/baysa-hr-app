@@ -14,7 +14,7 @@ const Heading = ({
     <Flex
       justifyContent={"space-between"}
       alignItems={"center"}
-      paddingX={10}
+      paddingX={20}
       paddingY={5}
     >
       <Box>

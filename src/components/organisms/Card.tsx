@@ -1,7 +1,7 @@
 import { Box } from "@chakra-ui/react";
 import React, { ReactElement } from "react";
 
-const Card = ({ children }: { children: ReactElement[] }) => {
+const Card = ({ children }: { children: ReactElement | ReactElement[] }) => {
   return (
     <Box
       backgroundColor={"white"}
