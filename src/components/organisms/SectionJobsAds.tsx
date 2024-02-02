@@ -67,7 +67,8 @@ const SectionJobsAds = () => {
         />
       </Flex>
       <div className="p-10 space-y-5">
-        {jobsData.length && jobsData.map((job) => <JobAd data={job} />)}
+        {jobsData.length &&
+          jobsData.map((job, i) => <JobAd data={job} key={i} />)}
       </div>
     </Card>
   );

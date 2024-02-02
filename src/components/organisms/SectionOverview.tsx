@@ -52,12 +52,13 @@ const SectionOverview = () => {
       </Flex>
       <Flex padding={10} columnGap={10} flexWrap={"wrap"}>
         {overviewData.length &&
-          overviewData.map((data) => (
+          overviewData.map((data, i) => (
             <OverviewCard
               growth={data.growth}
               amount={data.amount}
               growthRate={data.growthRate}
               desc={data.desc}
+              key={i}
             />
           ))}
       </Flex>

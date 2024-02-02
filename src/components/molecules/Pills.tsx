@@ -16,7 +16,7 @@ const Pills = ({
     <Flex
       justifyContent={"center"}
       alignItems={"center"}
-      paddingY={2}
+      paddingY={1}
       paddingX={4}
       color={textColor}
       backgroundColor={bgColor}
