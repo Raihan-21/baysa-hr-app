@@ -38,7 +38,7 @@ const SectionTargets = () => {
     ],
   });
   return (
-    <Card>
+    <Card data-testid="section">
       <Flex
         justifyContent={"center"}
         alignItems={"center"}

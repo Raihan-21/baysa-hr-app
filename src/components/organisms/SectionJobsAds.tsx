@@ -44,7 +44,7 @@ const SectionJobsAds = () => {
     },
   ]);
   return (
-    <Card>
+    <Card data-testid="section">
       <Flex
         justifyContent={"space-between"}
         borderBottom={"1px solid lightgray"}
@@ -56,11 +56,11 @@ const SectionJobsAds = () => {
             RECENT JOB ADS
           </Text>
           <Text fontWeight={"bold"} color={"thirdgray"} fontSize={"large"}>
-            <span className="!text-secondarygray text-[24px]">16</span> / 24
+            <span className="!text-secondarygray text-[24px]">2</span> 2
           </Text>
         </Box>
         <Pills
-          text="5 Jobs ads left"
+          text="2 Jobs ads left"
           textColor="thirdgray"
           bgColor="bggray"
           boldText

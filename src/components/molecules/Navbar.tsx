@@ -23,31 +23,31 @@ const Navbar = () => {
           Boxboard
         </Text>
         <Flex columnGap={10}>
-          <Link href={"/"}>
+          <Link href={"/"} data-testid="menu-item">
             <Flex alignItems={"center"} columnGap={1}>
               <PiSquaresFourLight color="#BBC3CC" />
               <Text color="thirdgray">Overview</Text>
             </Flex>
           </Link>
-          <Link href={"/jobs"}>
+          <Link href={"/jobs"} data-testid="menu-item">
             <Flex alignItems={"center"} columnGap={1}>
               <FiSearch color="#BBC3CC" />
               <Text color="thirdgray">Job Search</Text>
             </Flex>
           </Link>
-          <Link href={"/"}>
+          <Link href={"/"} data-testid="menu-item">
             <Flex alignItems={"center"} columnGap={1}>
               <FaClockRotateLeft color="#BBC3CC" />
               <Text color="thirdgray">Schdule</Text>
             </Flex>
           </Link>
-          <Link href={"/"}>
+          <Link href={"/"} data-testid="menu-item">
             <Flex alignItems={"center"} columnGap={1}>
               <FaClock color="#BBC3CC" />
               <Text color="thirdgray">History</Text>
             </Flex>
           </Link>
-          <Link href={"/"}>
+          <Link href={"/"} data-testid="menu-item">
             <Flex alignItems={"center"} columnGap={1}>
               <MdOutlineEventNote color="#BBC3CC" />
               <Text color="thirdgray">Events</Text>
@@ -56,7 +56,13 @@ const Navbar = () => {
         </Flex>
         <Flex alignItems="center" columnGap={5}>
           <IoMdNotifications />
-          <Img src="/profile.jpg" width={10} height={10} borderRadius={"50%"} />
+          <Img
+            data-testid="profile-img"
+            src="/profile.jpg"
+            width={10}
+            height={10}
+            borderRadius={"50%"}
+          />
         </Flex>
       </Flex>
     </nav>

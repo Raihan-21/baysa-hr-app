@@ -23,6 +23,7 @@ const Pills = ({
       borderRadius={50}
       fontSize={"small"}
       height={"fit-content"}
+      data-testid="pills"
     >
       <Text fontWeight={boldText ? "bold" : "normal"}>{text}</Text>
     </Flex>

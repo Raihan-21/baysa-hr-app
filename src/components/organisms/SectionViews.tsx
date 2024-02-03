@@ -58,7 +58,7 @@ const SectionViews = () => {
     ],
   });
   return (
-    <Card>
+    <Card data-testid="section">
       <Flex
         justifyContent={"space-between"}
         borderBottom={"1px solid lightgray"}
