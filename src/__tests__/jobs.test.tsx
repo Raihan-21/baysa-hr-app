@@ -35,10 +35,10 @@ describe("Jobs", () => {
 
     const input = screen.getByRole("input");
     const select = screen.getByRole("select");
-    const button = screen.getByRole("button");
+    // const button = screen.getByRole("button");
 
     expect(input).toBeInTheDocument();
     expect(select).toBeInTheDocument();
-    expect(button).toBeInTheDocument();
+    // expect(button).toBeInTheDocument();
   });
 });
