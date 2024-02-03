@@ -1,6 +1,5 @@
 import Navbar from "@/components/molecules/Navbar";
 import Searchbar from "@/components/organisms/Searchbar";
-import Jobs from "@/pages/jobs";
 import "@testing-library/jest-dom";
 
 import { render, screen, waitFor } from "@testing-library/react";
@@ -54,6 +53,7 @@ describe("Searchbar", () => {
     );
 
     const inputElement = screen.getByRole("input");
+    const selectElement = screen.getByRole("select");
 
     await user.type(inputElement, "dev");
     await waitFor(() => expect(mockInputChange).toHaveBeenCalledTimes(3));
@@ -66,5 +66,8 @@ describe("Searchbar", () => {
     await waitFor(() =>
       expect(mockInputChange).toHaveBeenNthCalledWith(3, "v")
     );
+
+    await user.selectOptions(selectElement, "usa");
+    await waitFor(() => expect(mockLocationChange).toHaveBeenCalled());
   });
 });

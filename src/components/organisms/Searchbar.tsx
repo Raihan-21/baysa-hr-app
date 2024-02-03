@@ -62,7 +62,12 @@ const Searchbar = ({
               >
                 {searchOptions.length &&
                   searchOptions.map((option, i) => (
-                    <option value={option.value} key={i}>
+                    <option
+                      value={option.value}
+                      key={i}
+                      role="option"
+                      aria-label={option.value}
+                    >
                       {option.text}
                     </option>
                   ))}
