@@ -3,6 +3,11 @@ import { render, screen } from "@testing-library/react";
 import Home from "@/pages";
 import Navbar from "@/components/molecules/Navbar";
 
+jest.mock("react-chartjs-2", () => ({
+  Bar: () => null,
+  Doughnut: () => null,
+  Line: () => null,
+}));
 describe("Overview", () => {
   it("renders a navbar", () => {
     render(<Navbar />);
@@ -36,7 +41,6 @@ describe("Overview", () => {
       expect(section).toBeInTheDocument();
     });
   });
-
   it("renders components", () => {
     render(<Home />);
     const pills = screen.getAllByTestId("pills");

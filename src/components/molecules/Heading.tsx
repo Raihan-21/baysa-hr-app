@@ -19,10 +19,14 @@ const Heading = ({
       data-testid="heading"
     >
       <Box>
-        <Text fontWeight={"bold"} fontSize={"xx-large"}>
+        <Text
+          fontWeight={"bold"}
+          fontSize={"xx-large"}
+          data-testid="heading-title"
+        >
           {title}
         </Text>
-        <Text fontSize={"small"} color={"thirdgray"}>
+        <Text fontSize={"small"} color={"thirdgray"} data-testid="heading-desc">
           {desc}
         </Text>
       </Box>

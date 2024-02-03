@@ -264,7 +264,7 @@ const Jobs = () => {
           <Card>
             <Box padding={5}>
               {jobFiltered.length &&
-                jobFiltered.map((job) => <JobItem data={job} />)}
+                jobFiltered.map((job, i) => <JobItem data={job} key={i} />)}
             </Box>
           </Card>
         </GridItem>

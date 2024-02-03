@@ -45,6 +45,7 @@ const Searchbar = ({
               border={"none"}
               placeholder="Job title, Company or Keywords"
               value={inputValue}
+              role="input"
               onChange={(e) => setParentInput(e.target.value)}
             />
           </GridItem>
@@ -57,6 +58,7 @@ const Searchbar = ({
                   console.log(e.target.value);
                   setParentLocation(e.target.value);
                 }}
+                role="select"
               >
                 {searchOptions.length &&
                   searchOptions.map((option, i) => (
