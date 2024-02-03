@@ -6,6 +6,7 @@ import Searchbar from "@/components/organisms/Searchbar";
 import {
   Box,
   Checkbox,
+  CheckboxGroup,
   Collapse,
   Flex,
   Grid,
@@ -15,12 +16,14 @@ import {
   VStack,
   useDisclosure,
 } from "@chakra-ui/react";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { ChangeEvent, useCallback, useEffect, useState } from "react";
 
 import { IoChevronUp } from "react-icons/io5";
 
 const Jobs = () => {
   const { isOpen, onToggle } = useDisclosure();
+
+  const [checkedjobType, setCheckedJobType] = useState<string[]>([]);
 
   const [jobList, setJobList] = useState([
     {
@@ -63,17 +66,61 @@ const Jobs = () => {
 
   const [locationInput, setLocationInput] = useState("");
 
+  const checkJobType = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      if (checkedjobType.find((jobType) => jobType === e.target.value)) {
+        setCheckedJobType(
+          checkedjobType.filter((jobType) => {
+            return jobType !== e.target.value;
+          })
+        );
+        console.log(checkedjobType);
+        // if (checkedjobType.length === 1)
+        //   setCheckedJobType([...checkedjobType, ""]);
+        // return;
+      }
+      setCheckedJobType([...checkedjobType, e.target.value]);
+    },
+    [checkedjobType]
+  );
+  const checkEmptyJobType = useCallback(() => {
+    if (!checkedjobType.length) setCheckedJobType([...checkedjobType, ""]);
+  }, [checkedjobType]);
+  // const onJobTypeChecked = useCallback(
+  //   (values: (string | number)[]) => {
+  //     console.log(values[0]);
+  //     // if (checkedjobType.find((jobType) => jobType === values[0])) {
+  //     //   setCheckedJobType(
+  //     //     checkedjobType.filter((jobType) => {
+  //     //       return jobType !== values[0];
+  //     //     })
+  //     //   );
+  //     //   return;
+  //     // }
+  //     // setCheckedJobType([...checkedjobType, values[0]]);
+  //   },
+  //   [checkedjobType]
+  // );
+
   const search = useCallback(() => {
+    // checkEmptyJobType();
+    // console.log(checkedjobType);
     setJobFiltered(
       jobList.filter((job) => {
         return (
           (job.position.toLowerCase().match(searchInput.toLowerCase()) ||
             job.company.toLowerCase().match(searchInput.toLowerCase())) &&
           job.location.toLowerCase().match(locationInput.toLowerCase())
+          // checkedjobType.some((jobType) => jobType.match(job.type.value))
         );
       })
     );
-  }, [jobList, searchInput, locationInput]);
+  }, [checkedjobType, jobList, searchInput, locationInput]);
+  useEffect(() => {
+    if (!checkedjobType.length) setCheckedJobType([...checkedjobType, ""]);
+    search();
+  }, [checkedjobType]);
+
   return (
     <Box>
       <Heading
@@ -111,7 +158,14 @@ const Jobs = () => {
             <VStack paddingX={2} paddingY={4} spacing={2}>
               <Flex justifyContent={"space-between"} width={"100%"}>
                 <Flex columnGap={2} alignItems={"center"}>
-                  <Checkbox value={"fulltime"}>Full Time Jobs</Checkbox>
+                  <Checkbox
+                    value={"fulltime"}
+                    onChange={(e) => {
+                      checkJobType(e);
+                    }}
+                  >
+                    Full Time Jobs
+                  </Checkbox>
                 </Flex>
                 <Pills
                   text="2000"
@@ -122,7 +176,14 @@ const Jobs = () => {
               </Flex>
               <Flex justifyContent={"space-between"} width={"100%"}>
                 <Flex columnGap={2} alignItems={"center"}>
-                  <Checkbox value={"parttime"}>Part Time Jobs</Checkbox>
+                  <Checkbox
+                    value={"parttime"}
+                    onChange={(e) => {
+                      checkJobType(e);
+                    }}
+                  >
+                    Part Time Jobs
+                  </Checkbox>
                 </Flex>
                 <Pills
                   text="2000"
@@ -133,7 +194,14 @@ const Jobs = () => {
               </Flex>
               <Flex justifyContent={"space-between"} width={"100%"}>
                 <Flex columnGap={2} alignItems={"center"}>
-                  <Checkbox value={"remote"}>Remote Jobs</Checkbox>
+                  <Checkbox
+                    value={"remote"}
+                    onChange={(e) => {
+                      checkJobType(e);
+                    }}
+                  >
+                    Remote Jobs
+                  </Checkbox>
                 </Flex>
                 <Pills
                   text="2000"
@@ -144,7 +212,14 @@ const Jobs = () => {
               </Flex>
               <Flex justifyContent={"space-between"} width={"100%"}>
                 <Flex columnGap={2} alignItems={"center"}>
-                  <Checkbox value={"internship"}>Internship Jobs</Checkbox>
+                  <Checkbox
+                    value={"internship"}
+                    onChange={(e) => {
+                      checkJobType(e);
+                    }}
+                  >
+                    Internship Jobs
+                  </Checkbox>
                 </Flex>
                 <Pills
                   text="2000"
@@ -155,7 +230,14 @@ const Jobs = () => {
               </Flex>
               <Flex justifyContent={"space-between"} width={"100%"}>
                 <Flex columnGap={2} alignItems={"center"}>
-                  <Checkbox value={"contract"}>Contract</Checkbox>
+                  <Checkbox
+                    value={"contract"}
+                    onChange={(e) => {
+                      checkJobType(e);
+                    }}
+                  >
+                    Contract
+                  </Checkbox>
                 </Flex>
                 <Pills
                   text="2000"

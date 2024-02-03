@@ -65,7 +65,7 @@ const SectionImpressions = () => {
     ],
   });
   return (
-    <Card>
+    <Card data-testid="section-impressions">
       <Flex
         justifyContent={"space-between"}
         alignItems={"center"}

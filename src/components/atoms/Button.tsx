@@ -17,6 +17,7 @@ const Button = ({
     <button
       className={`${bgColor} ${textColor} rounded-[12px] py-3 px-4 `}
       type={type}
+      role="button"
       onClick={onClick}
     >
       {children}

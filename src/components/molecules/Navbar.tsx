@@ -17,6 +17,7 @@ const Navbar = () => {
         columnGap={5}
         justifyContent={"space-between"}
         alignItems={"center"}
+        role="navbar"
       >
         <Text fontWeight={"bold"} fontSize={"x-large"}>
           Boxboard

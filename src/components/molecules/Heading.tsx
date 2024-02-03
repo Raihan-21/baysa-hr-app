@@ -16,6 +16,7 @@ const Heading = ({
       alignItems={"center"}
       paddingX={20}
       paddingY={5}
+      data-testid="heading"
     >
       <Box>
         <Text fontWeight={"bold"} fontSize={"xx-large"}>
