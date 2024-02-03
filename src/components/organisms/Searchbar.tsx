@@ -55,7 +55,6 @@ const Searchbar = ({
                 placeholder="Select Location"
                 value={locationValue}
                 onChange={(e) => {
-                  console.log(e.target.value);
                   setParentLocation(e.target.value);
                 }}
                 role="select"

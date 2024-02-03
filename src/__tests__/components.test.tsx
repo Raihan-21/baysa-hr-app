@@ -70,4 +70,29 @@ describe("Searchbar", () => {
     await user.selectOptions(selectElement, "usa");
     await waitFor(() => expect(mockLocationChange).toHaveBeenCalled());
   });
+
+  it("Submit search on enter", async () => {
+    const inputValue = "";
+    const mockInputChange = jest.fn();
+    const locationValue = "";
+    const mockLocationChange = jest.fn();
+
+    const onSearch = jest.fn();
+
+    const user = userEvent.setup();
+
+    render(
+      <Searchbar
+        inputValue={inputValue}
+        setParentInput={mockInputChange}
+        locationValue={locationValue}
+        setParentLocation={mockLocationChange}
+        onSearch={onSearch}
+      />
+    );
+    const inputElement = screen.getByRole("input");
+
+    await user.type(inputElement, "dev{enter}");
+    await waitFor(() => expect(onSearch).toHaveBeenCalled());
+  });
 });
