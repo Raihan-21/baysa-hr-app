@@ -15,7 +15,7 @@ import {
   VStack,
   useDisclosure,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 import { IoChevronUp } from "react-icons/io5";
 
@@ -45,7 +45,35 @@ const Jobs = () => {
       },
       created_at: "5 Days ago",
     },
+    {
+      image: "/dribbble-logo.png",
+      position: "Frontend Developer",
+      company: "Dribbble",
+      location: "Moscow, Russia",
+      type: {
+        value: "parttime",
+        text: "Part-Time",
+      },
+      created_at: "5 Days ago",
+    },
   ]);
+  const [jobFiltered, setJobFiltered] = useState(jobList);
+
+  const [searchInput, setSearchInput] = useState("");
+
+  const [locationInput, setLocationInput] = useState("");
+
+  const search = useCallback(() => {
+    setJobFiltered(
+      jobList.filter((job) => {
+        return (
+          (job.position.toLowerCase().match(searchInput.toLowerCase()) ||
+            job.company.toLowerCase().match(searchInput.toLowerCase())) &&
+          job.location.toLowerCase().match(locationInput.toLowerCase())
+        );
+      })
+    );
+  }, [jobList, searchInput, locationInput]);
   return (
     <Box>
       <Heading
@@ -53,7 +81,13 @@ const Jobs = () => {
         desc="It is enough to enter keywords or companies"
       />
       <Box paddingX={20} paddingY={10}>
-        <Searchbar />
+        <Searchbar
+          onSearch={search}
+          inputValue={searchInput}
+          setParentInput={setSearchInput}
+          locationValue={locationInput}
+          setParentLocation={setLocationInput}
+        />
       </Box>
       <Grid
         templateColumns={"repeat(5, 1fr)"}
@@ -134,15 +168,21 @@ const Jobs = () => {
           </Collapse>
         </GridItem>
         <GridItem colSpan={4}>
-          <Flex justifyContent={"space-between"}>
-            <Text>Showing: 520 Filtered Jobs</Text>
+          <Flex justifyContent={"space-between"} marginBottom={5}>
+            <Text fontWeight={"bold"}>
+              <span className="text-thirdgray mr-1"> Showing:</span>
+              <span className=" text-secondarygray">
+                {jobFiltered.length} Filtered Jobs
+              </span>
+            </Text>
             <Select width={"fit-content"}>
               <option>Relevance</option>
             </Select>
           </Flex>
           <Card>
             <Box padding={5}>
-              {jobList.length && jobList.map((job) => <JobItem data={job} />)}
+              {jobFiltered.length &&
+                jobFiltered.map((job) => <JobItem data={job} />)}
             </Box>
           </Card>
         </GridItem>
