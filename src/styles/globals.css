@@ -31,3 +31,10 @@ body {
     text-wrap: balance;
   }
 }
+
+
+.menu--active{
+  padding: .25rem 1rem;
+  background-color: #F3F4F6;
+  border-radius: 50px;
+}
