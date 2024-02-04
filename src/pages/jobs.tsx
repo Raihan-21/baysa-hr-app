@@ -328,8 +328,12 @@ const Jobs = () => {
               <Collapse in={locationOpen}>
                 <VStack paddingX={2} paddingY={4} spacing={2}>
                   {locationOptions.length &&
-                    locationOptions.map((opt) => (
-                      <Flex justifyContent={"space-between"} width={"100%"}>
+                    locationOptions.map((opt, i) => (
+                      <Flex
+                        justifyContent={"space-between"}
+                        width={"100%"}
+                        key={i}
+                      >
                         <Flex columnGap={2} alignItems={"center"}>
                           <Checkbox
                             value={opt.value}
