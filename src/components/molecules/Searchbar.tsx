@@ -21,6 +21,9 @@ const Searchbar = ({
   const [searchOptions, setSearchOptions] = useState([
     { text: "United States", value: "usa" },
     { text: "Russia", value: "russia" },
+    { text: "Ukraine", value: "ukraine" },
+    { text: "United Kingdom", value: "united kingdom" },
+    { text: "France", value: "france" },
   ]);
   const [locationFilter, setLocationFilter] = useState("");
 

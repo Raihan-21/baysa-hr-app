@@ -13,12 +13,14 @@ import {
 } from "@chakra-ui/react";
 import React, { ChangeEvent, useCallback, useEffect, useState } from "react";
 
+import { motion } from "framer-motion";
+
 /**
  *
  * Icons
  *
  */
-import { IoChevronUp } from "react-icons/io5";
+import { IoChevronDown } from "react-icons/io5";
 
 /**
  *
@@ -32,7 +34,11 @@ import JobItem from "@/components/organisms/JobItem";
 import Searchbar from "@/components/molecules/Searchbar";
 
 const Jobs = () => {
-  const { isOpen, onToggle } = useDisclosure();
+  const { isOpen: jobTypeOpen, onToggle: toggleJobType } = useDisclosure();
+  const { isOpen: seniorityOpen, onToggle: toggleSeniority } = useDisclosure();
+  const { isOpen: languageOpen, onToggle: toggleLanguage } = useDisclosure();
+  const { isOpen: salaryOpen, onToggle: toggleSalary } = useDisclosure();
+  const { isOpen: locationOpen, onToggle: toggleLocation } = useDisclosure();
 
   const [checkedjobType, setCheckedJobType] = useState<string[]>([]);
 
@@ -76,6 +82,14 @@ const Jobs = () => {
   const [searchInput, setSearchInput] = useState("");
 
   const [locationInput, setLocationInput] = useState("");
+
+  const [locationOptions, setLocationOptions] = useState([
+    { text: "United States", value: "usa" },
+    { text: "Russia", value: "russia" },
+    { text: "Ukraine", value: "ukraine" },
+    { text: "United Kingdom", value: "united kingdom" },
+    { text: "France", value: "france" },
+  ]);
 
   const checkJobType = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
@@ -133,110 +147,277 @@ const Jobs = () => {
         backgroundColor={"bggray"}
       >
         <GridItem colSpan={1} data-testid="filter-container">
-          <Flex
-            justifyContent={"space-between"}
-            onClick={onToggle}
-            cursor={"pointer"}
-          >
-            <Text fontWeight={"bold"} color={"secondarygray"}>
-              Type of employment
-            </Text>
-            <IoChevronUp />
-          </Flex>
-          <Collapse in={isOpen}>
-            <VStack paddingX={2} paddingY={4} spacing={2}>
-              <Flex justifyContent={"space-between"} width={"100%"}>
-                <Flex columnGap={2} alignItems={"center"}>
-                  <Checkbox
-                    value={"fulltime"}
-                    onChange={(e) => {
-                      checkJobType(e);
-                    }}
-                  >
-                    Full Time Jobs
-                  </Checkbox>
-                </Flex>
-                <Pills
-                  text="2000"
-                  bgColor="secondaryblue"
-                  textColor="primary"
-                  boldText
-                />
+          <VStack spacing={5} alignItems={"start"}>
+            <Box width={"100%"}>
+              <Flex
+                justifyContent={"space-between"}
+                alignItems={"center"}
+                onClick={toggleJobType}
+                cursor={"pointer"}
+              >
+                <Text fontWeight={"bold"} color={"secondarygray"}>
+                  Type of employment
+                </Text>
+                <motion.div animate={{ rotate: jobTypeOpen ? 180 : 0 }}>
+                  <IoChevronDown />
+                </motion.div>
               </Flex>
-              <Flex justifyContent={"space-between"} width={"100%"}>
-                <Flex columnGap={2} alignItems={"center"}>
-                  <Checkbox
-                    value={"parttime"}
-                    onChange={(e) => {
-                      checkJobType(e);
-                    }}
-                  >
-                    Part Time Jobs
-                  </Checkbox>
-                </Flex>
-                <Pills
-                  text="2000"
-                  bgColor="secondaryblue"
-                  textColor="primary"
-                  boldText
-                />
+              <Collapse in={jobTypeOpen}>
+                <VStack paddingX={2} paddingY={4} spacing={2}>
+                  <Flex justifyContent={"space-between"} width={"100%"}>
+                    <Flex columnGap={2} alignItems={"center"}>
+                      <Checkbox
+                        value={"fulltime"}
+                        onChange={(e) => {
+                          checkJobType(e);
+                        }}
+                      >
+                        Full Time Jobs
+                      </Checkbox>
+                    </Flex>
+                    <Pills
+                      text="2000"
+                      bgColor="secondaryblue"
+                      textColor="primary"
+                      boldText
+                    />
+                  </Flex>
+                  <Flex justifyContent={"space-between"} width={"100%"}>
+                    <Flex columnGap={2} alignItems={"center"}>
+                      <Checkbox
+                        value={"parttime"}
+                        onChange={(e) => {
+                          checkJobType(e);
+                        }}
+                      >
+                        Part Time Jobs
+                      </Checkbox>
+                    </Flex>
+                    <Pills
+                      text="2000"
+                      bgColor="secondaryblue"
+                      textColor="primary"
+                      boldText
+                    />
+                  </Flex>
+                  <Flex justifyContent={"space-between"} width={"100%"}>
+                    <Flex columnGap={2} alignItems={"center"}>
+                      <Checkbox
+                        value={"remote"}
+                        onChange={(e) => {
+                          checkJobType(e);
+                        }}
+                      >
+                        Remote Jobs
+                      </Checkbox>
+                    </Flex>
+                    <Pills
+                      text="2000"
+                      bgColor="secondaryblue"
+                      textColor="primary"
+                      boldText
+                    />
+                  </Flex>
+                  <Flex justifyContent={"space-between"} width={"100%"}>
+                    <Flex columnGap={2} alignItems={"center"}>
+                      <Checkbox
+                        value={"internship"}
+                        onChange={(e) => {
+                          checkJobType(e);
+                        }}
+                      >
+                        Internship Jobs
+                      </Checkbox>
+                    </Flex>
+                    <Pills
+                      text="2000"
+                      bgColor="secondaryblue"
+                      textColor="primary"
+                      boldText
+                    />
+                  </Flex>
+                  <Flex justifyContent={"space-between"} width={"100%"}>
+                    <Flex columnGap={2} alignItems={"center"}>
+                      <Checkbox
+                        value={"contract"}
+                        onChange={(e) => {
+                          checkJobType(e);
+                        }}
+                      >
+                        Contract
+                      </Checkbox>
+                    </Flex>
+                    <Pills
+                      text="2000"
+                      bgColor="secondaryblue"
+                      textColor="primary"
+                      boldText
+                    />
+                  </Flex>
+                </VStack>
+              </Collapse>
+            </Box>
+            <Box width={"100%"}>
+              <Flex
+                justifyContent={"space-between"}
+                alignItems={"center"}
+                onClick={toggleSeniority}
+                cursor={"pointer"}
+              >
+                <Text fontWeight={"bold"} color={"secondarygray"}>
+                  Seniority Level
+                </Text>
+                <motion.div animate={{ rotate: seniorityOpen ? 180 : 0 }}>
+                  <IoChevronDown />
+                </motion.div>
               </Flex>
-              <Flex justifyContent={"space-between"} width={"100%"}>
-                <Flex columnGap={2} alignItems={"center"}>
-                  <Checkbox
-                    value={"remote"}
-                    onChange={(e) => {
-                      checkJobType(e);
-                    }}
-                  >
-                    Remote Jobs
-                  </Checkbox>
-                </Flex>
-                <Pills
-                  text="2000"
-                  bgColor="secondaryblue"
-                  textColor="primary"
-                  boldText
-                />
+              <Collapse in={seniorityOpen}>
+                <VStack paddingX={2} paddingY={4} spacing={2}></VStack>
+              </Collapse>
+            </Box>
+            <Box width={"100%"}>
+              <Flex
+                justifyContent={"space-between"}
+                alignItems={"center"}
+                onClick={toggleLanguage}
+                cursor={"pointer"}
+              >
+                <Text fontWeight={"bold"} color={"secondarygray"}>
+                  Language
+                </Text>
+                <motion.div animate={{ rotate: languageOpen ? 180 : 0 }}>
+                  <IoChevronDown />
+                </motion.div>
               </Flex>
-              <Flex justifyContent={"space-between"} width={"100%"}>
-                <Flex columnGap={2} alignItems={"center"}>
-                  <Checkbox
-                    value={"internship"}
-                    onChange={(e) => {
-                      checkJobType(e);
-                    }}
-                  >
-                    Internship Jobs
-                  </Checkbox>
-                </Flex>
-                <Pills
-                  text="2000"
-                  bgColor="secondaryblue"
-                  textColor="primary"
-                  boldText
-                />
+              <Collapse in={languageOpen}>
+                <VStack paddingX={2} paddingY={4} spacing={2}></VStack>
+              </Collapse>
+            </Box>
+            <Box width={"100%"}>
+              <Flex
+                justifyContent={"space-between"}
+                alignItems={"center"}
+                onClick={toggleSalary}
+                cursor={"pointer"}
+              >
+                <Text fontWeight={"bold"} color={"secondarygray"}>
+                  Salary Range
+                </Text>
+                <motion.div animate={{ rotate: salaryOpen ? 180 : 0 }}>
+                  <IoChevronDown />
+                </motion.div>
               </Flex>
-              <Flex justifyContent={"space-between"} width={"100%"}>
-                <Flex columnGap={2} alignItems={"center"}>
-                  <Checkbox
-                    value={"contract"}
-                    onChange={(e) => {
-                      checkJobType(e);
-                    }}
-                  >
-                    Contract
-                  </Checkbox>
-                </Flex>
-                <Pills
-                  text="2000"
-                  bgColor="secondaryblue"
-                  textColor="primary"
-                  boldText
-                />
+              <Collapse in={salaryOpen}>
+                <VStack paddingX={2} paddingY={4} spacing={2}></VStack>
+              </Collapse>
+            </Box>
+            <Box width={"100%"}>
+              <Flex
+                justifyContent={"space-between"}
+                alignItems={"center"}
+                onClick={toggleLocation}
+                cursor={"pointer"}
+              >
+                <Text fontWeight={"bold"} color={"secondarygray"}>
+                  Location
+                </Text>
+                <motion.div animate={{ rotate: locationOpen ? 180 : 0 }}>
+                  <IoChevronDown />
+                </motion.div>
               </Flex>
-            </VStack>
-          </Collapse>
+              <Collapse in={locationOpen}>
+                <VStack paddingX={2} paddingY={4} spacing={2}>
+                  {locationOptions.length &&
+                    locationOptions.map((opt) => (
+                      <Flex justifyContent={"space-between"} width={"100%"}>
+                        <Flex columnGap={2} alignItems={"center"}>
+                          <Checkbox
+                            value={opt.value}
+                            onChange={(e) => {
+                              checkJobType(e);
+                            }}
+                          >
+                            {opt.text}
+                          </Checkbox>
+                        </Flex>
+                      </Flex>
+                    ))}
+                  {/* <Flex justifyContent={"space-between"} width={"100%"}>
+                    <Flex columnGap={2} alignItems={"center"}>
+                      <Checkbox
+                        value={"parttime"}
+                        onChange={(e) => {
+                          checkJobType(e);
+                        }}
+                      >
+                        Part Time Jobs
+                      </Checkbox>
+                    </Flex>
+                    <Pills
+                      text="2000"
+                      bgColor="secondaryblue"
+                      textColor="primary"
+                      boldText
+                    />
+                  </Flex>
+                  <Flex justifyContent={"space-between"} width={"100%"}>
+                    <Flex columnGap={2} alignItems={"center"}>
+                      <Checkbox
+                        value={"remote"}
+                        onChange={(e) => {
+                          checkJobType(e);
+                        }}
+                      >
+                        Remote Jobs
+                      </Checkbox>
+                    </Flex>
+                    <Pills
+                      text="2000"
+                      bgColor="secondaryblue"
+                      textColor="primary"
+                      boldText
+                    />
+                  </Flex>
+                  <Flex justifyContent={"space-between"} width={"100%"}>
+                    <Flex columnGap={2} alignItems={"center"}>
+                      <Checkbox
+                        value={"internship"}
+                        onChange={(e) => {
+                          checkJobType(e);
+                        }}
+                      >
+                        Internship Jobs
+                      </Checkbox>
+                    </Flex>
+                    <Pills
+                      text="2000"
+                      bgColor="secondaryblue"
+                      textColor="primary"
+                      boldText
+                    />
+                  </Flex>
+                  <Flex justifyContent={"space-between"} width={"100%"}>
+                    <Flex columnGap={2} alignItems={"center"}>
+                      <Checkbox
+                        value={"contract"}
+                        onChange={(e) => {
+                          checkJobType(e);
+                        }}
+                      >
+                        Contract
+                      </Checkbox>
+                    </Flex>
+                    <Pills
+                      text="2000"
+                      bgColor="secondaryblue"
+                      textColor="primary"
+                      boldText
+                    />
+                  </Flex> */}
+                </VStack>
+              </Collapse>
+            </Box>
+          </VStack>
         </GridItem>
         <GridItem colSpan={4}>
           <Flex justifyContent={"space-between"} marginBottom={5}>
@@ -252,8 +433,13 @@ const Jobs = () => {
           </Flex>
           <Card>
             <Box padding={5}>
-              {jobFiltered.length &&
-                jobFiltered.map((job, i) => <JobItem data={job} key={i} />)}
+              {jobFiltered.length ? (
+                jobFiltered.map((job, i) => <JobItem data={job} key={i} />)
+              ) : (
+                <Text fontWeight={"bold"} color={"secondarygray"}>
+                  No job found
+                </Text>
+              )}
             </Box>
           </Card>
         </GridItem>
