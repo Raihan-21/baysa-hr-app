@@ -22,8 +22,12 @@ ChartJS.register(
   LinearScale
 );
 
+/**
+ *
+ * Components
+ *
+ */
 import Card from "@/components/organisms/Card";
-import Pills from "../molecules/Pills";
 import Button from "../atoms/Button";
 
 const SectionTargets = () => {

@@ -1,7 +1,11 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
 
-// icons
+/**
+ *
+ * Icons
+ *
+ */
 import { FaArrowUp } from "react-icons/fa6";
 import { FaArrowDown } from "react-icons/fa6";
 import { GoDash } from "react-icons/go";

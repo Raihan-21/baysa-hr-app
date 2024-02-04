@@ -5,17 +5,28 @@ import { Box, Flex, Grid, GridItem, VStack } from "@chakra-ui/react";
 
 import { useState } from "react";
 
+/**
+ *
+ * Icons
+ *
+ */
+import { FaPlus } from "react-icons/fa6";
+
+/**
+ *
+ * Components
+ *
+ */
+
 import Heading from "@/components/molecules/Heading";
 import Button from "@/components/atoms/Button";
 import SectionOverview from "@/components/organisms/SectionOverview";
 import SectionViews from "@/components/organisms/SectionViews";
 import SectionGoals from "@/components/organisms/SectionGoals";
-import SectionStatistics from "@/components/organisms/SectionStatistics";
-import SectionJobsAds from "@/components/organisms/SectionJobsAds";
-
-import { FaPlus } from "react-icons/fa6";
 import SectionImpressions from "@/components/organisms/SectionImpressions";
 import SectionTargets from "@/components/organisms/SectionTargets";
+import SectionStatistics from "@/components/organisms/SectionStatistics";
+import SectionJobsAds from "@/components/organisms/SectionJobsAds";
 
 const inter = Inter({ subsets: ["latin"] });
 

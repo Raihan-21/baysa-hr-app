@@ -2,6 +2,11 @@ import React, { useState } from "react";
 
 import { Box, Flex, Tab, TabList, Tabs, Text } from "@chakra-ui/react";
 
+/**
+ *
+ * Components
+ *
+ */
 import Card from "@/components/organisms/Card";
 import OverviewCard from "@/components/organisms/OverviewCard";
 

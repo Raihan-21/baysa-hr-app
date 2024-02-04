@@ -1,8 +1,20 @@
 import { Box, Flex, Grid, GridItem, Img, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
 
+/**
+ *
+ * Icons
+ *
+ */
+
 import { BsThreeDots } from "react-icons/bs";
 import { FaStar } from "react-icons/fa";
+
+/**
+ *
+ * Components
+ *
+ */
 
 import Pills from "../molecules/Pills";
 import Button from "../atoms/Button";

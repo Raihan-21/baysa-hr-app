@@ -35,11 +35,9 @@ describe("Jobs", () => {
 
     const input = screen.getByRole("input");
     const select = screen.getByRole("select");
-    // const button = screen.getByRole("button");
 
     expect(input).toBeInTheDocument();
     expect(select).toBeInTheDocument();
-    // expect(button).toBeInTheDocument();
   });
   it("renders filter component", () => {
     render(<Jobs />);

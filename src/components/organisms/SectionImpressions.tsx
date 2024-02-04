@@ -22,6 +22,7 @@ ChartJS.register(
 );
 
 import Card from "@/components/organisms/Card";
+
 const SectionImpressions = () => {
   const [data, setData] = useState({
     total: 1938000,

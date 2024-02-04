@@ -22,8 +22,12 @@ ChartJS.register(
   LinearScale
 );
 
+/**
+ *
+ * Components
+ *
+ */
 import Card from "@/components/organisms/Card";
-import OverviewCard from "@/components/organisms/OverviewCard";
 
 const SectionViews = () => {
   const [data, setData] = useState({

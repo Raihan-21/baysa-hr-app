@@ -1,8 +1,3 @@
-import Heading from "@/components/molecules/Heading";
-import Pills from "@/components/molecules/Pills";
-import Card from "@/components/organisms/Card";
-import JobItem from "@/components/organisms/JobItem";
-import Searchbar from "@/components/molecules/Searchbar";
 import {
   Box,
   Checkbox,
@@ -18,7 +13,23 @@ import {
 } from "@chakra-ui/react";
 import React, { ChangeEvent, useCallback, useEffect, useState } from "react";
 
+/**
+ *
+ * Icons
+ *
+ */
 import { IoChevronUp } from "react-icons/io5";
+
+/**
+ *
+ * Components
+ *
+ */
+import Heading from "@/components/molecules/Heading";
+import Pills from "@/components/molecules/Pills";
+import Card from "@/components/organisms/Card";
+import JobItem from "@/components/organisms/JobItem";
+import Searchbar from "@/components/molecules/Searchbar";
 
 const Jobs = () => {
   const { isOpen, onToggle } = useDisclosure();
@@ -74,10 +85,6 @@ const Jobs = () => {
             return jobType !== e.target.value;
           })
         );
-        console.log(checkedjobType);
-        // if (checkedjobType.length === 1)
-        //   setCheckedJobType([...checkedjobType, ""]);
-        // return;
       }
       setCheckedJobType([...checkedjobType, e.target.value]);
     },
@@ -86,32 +93,14 @@ const Jobs = () => {
   const checkEmptyJobType = useCallback(() => {
     if (!checkedjobType.length) setCheckedJobType([...checkedjobType, ""]);
   }, [checkedjobType]);
-  // const onJobTypeChecked = useCallback(
-  //   (values: (string | number)[]) => {
-  //     console.log(values[0]);
-  //     // if (checkedjobType.find((jobType) => jobType === values[0])) {
-  //     //   setCheckedJobType(
-  //     //     checkedjobType.filter((jobType) => {
-  //     //       return jobType !== values[0];
-  //     //     })
-  //     //   );
-  //     //   return;
-  //     // }
-  //     // setCheckedJobType([...checkedjobType, values[0]]);
-  //   },
-  //   [checkedjobType]
-  // );
 
   const search = useCallback(() => {
-    // checkEmptyJobType();
-    // console.log(checkedjobType);
     setJobFiltered(
       jobList.filter((job) => {
         return (
           (job.position.toLowerCase().match(searchInput.toLowerCase()) ||
             job.company.toLowerCase().match(searchInput.toLowerCase())) &&
           job.location.toLowerCase().match(locationInput.toLowerCase())
-          // checkedjobType.some((jobType) => jobType.match(job.type.value))
         );
       })
     );
