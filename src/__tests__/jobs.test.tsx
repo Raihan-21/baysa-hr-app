@@ -41,4 +41,10 @@ describe("Jobs", () => {
     expect(select).toBeInTheDocument();
     // expect(button).toBeInTheDocument();
   });
+  it("renders filter component", () => {
+    render(<Jobs />);
+
+    const filterComponent = screen.getByTestId("filter-container");
+    expect(filterComponent).toBeInTheDocument();
+  });
 });

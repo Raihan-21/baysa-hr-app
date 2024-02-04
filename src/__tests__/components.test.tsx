@@ -1,5 +1,5 @@
 import Navbar from "@/components/molecules/Navbar";
-import Searchbar from "@/components/organisms/Searchbar";
+import Searchbar from "@/components/molecules/Searchbar";
 import "@testing-library/jest-dom";
 
 import { render, screen, waitFor } from "@testing-library/react";

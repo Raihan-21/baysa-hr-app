@@ -2,7 +2,7 @@ import Heading from "@/components/molecules/Heading";
 import Pills from "@/components/molecules/Pills";
 import Card from "@/components/organisms/Card";
 import JobItem from "@/components/organisms/JobItem";
-import Searchbar from "@/components/organisms/Searchbar";
+import Searchbar from "@/components/molecules/Searchbar";
 import {
   Box,
   Checkbox,
@@ -143,7 +143,7 @@ const Jobs = () => {
         columnGap={5}
         backgroundColor={"bggray"}
       >
-        <GridItem colSpan={1}>
+        <GridItem colSpan={1} data-testid="filter-container">
           <Flex
             justifyContent={"space-between"}
             onClick={onToggle}
